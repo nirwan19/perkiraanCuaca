@@ -9,8 +9,8 @@ Modified @ Farzain - zFz
 require_once('./line_class.php');
 require_once('./unirest-php-master/src/Unirest.php');
 
-$channelAccessToken = 'YOUR-CHANNEL-ACCESS-TOKEN'; //sesuaikan 
-$channelSecret = 'YOUR-CHANNEL-SECRET-CODE';//sesuaikan
+$channelAccessToken = 'A63PSLy5zqo9o/Aw9g46slH9FwCMUOrxrTcUXFQCe6B7qYvY1ak44TvLVt4LoXdnTmWGl+awRcEJsFc5hvtj21FiSru/FC/MGwwQDzJp2g8+JgTW/2Qepj2+P9lyqZIYjT+SDHr0nzGuJncatCvh5QdB04t89/1O/w1cDnyilFU='; //sesuaikan 
+$channelSecret = '95481987c14417f1dd4d27bd6a34fa74';//sesuaikan
 
 $client = new LINEBotTiny($channelAccessToken, $channelSecret);
 
@@ -43,7 +43,7 @@ function cuaca($keyword) {
     $response = Unirest\Request::get("$uri");
 
     $json = json_decode($response->raw_body, true);
-    $result = "Halo Kak ^_^ Ini ada Ramalan Cuaca Untuk Daerah ";
+    $result = "Halo Gan, Ramalan Cuaca Untuk Daerah ";
 	$result .= $json['name'];
 	$result .= " Dan Sekitarnya";
 	$result .= "\n\nCuaca : ";
@@ -62,7 +62,7 @@ function cuaca($keyword) {
 
 //show menu, saat join dan command /menu
 if ($type == 'join' || $command == '/menu') {
-    $text = "Halo Kak ^_^\nAku Bot Prediksi Cuaca, Kamu bisa mengetahui prediksi cuaca di daerah kamu sesuai dengan sumber BMKG";
+    $text = "Halo Gan ^_^\nAku Bot Prediksi Cuaca, Kamu bisa mengetahui prediksi cuaca di daerah kamu sesuai dengan sumber BMKG";
     $balas = array(
         'replyToken' => $replyToken,
         'messages' => array(
@@ -76,7 +76,7 @@ if ($type == 'join' || $command == '/menu') {
 
 //pesan bergambar
 if($message['type']=='text') {
-	    if ($command == '/cuaca') {
+	    if ($command == 'cuaca') {
 
         $result = cuaca($options);
         $balas = array(
