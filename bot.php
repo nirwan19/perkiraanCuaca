@@ -61,7 +61,7 @@ function cuaca($keyword) {
 # require_once('./src/function/hard.php');
 
 //show menu, saat join dan command /menu
-if ($type == 'join' || $command == '/menu') {
+if ($type == 'join' || $command == 'menu') {
     $text = "Halo Gan ^_^\nAku Bot Prediksi Cuaca, Kamu bisa mengetahui prediksi cuaca di daerah kamu sesuai dengan sumber BMKG";
     $balas = array(
         'replyToken' => $replyToken,
@@ -90,8 +90,31 @@ if($message['type']=='text') {
         );
     }
 
-}else if($message['type']=='sticker')
-{	
+}else if ($command == 'Cuaca') {
+
+        $result = cuaca($options);
+        $balas = array(
+            'replyToken' => $replyToken,
+            'messages' => array(
+                array(
+                    'type' => 'text',
+                    'text' => $result
+                )
+            )
+        );
+}else if ($command == 'CUACA') {
+
+        $result = cuaca($options);
+        $balas = array(
+            'replyToken' => $replyToken,
+            'messages' => array(
+                array(
+                    'type' => 'text',
+                    'text' => $result
+                )
+            )
+        );
+}else if($message['type']=='sticker'){	
 	$balas = array(
 							'replyToken' => $replyToken,														
 							'messages' => array(
