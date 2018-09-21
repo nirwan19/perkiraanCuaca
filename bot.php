@@ -88,9 +88,7 @@ if($message['type']=='text') {
                 )
             )
         );
-    }
-
-}else if ($command == 'Cuaca') {
+    }else if ($command == 'Cuaca') {
 
         $result = cuaca($options);
         $balas = array(
@@ -114,6 +112,7 @@ if($message['type']=='text') {
                 )
             )
         );
+}
 }else if($message['type']=='sticker'){	
 	$balas = array(
 							'replyToken' => $replyToken,														
