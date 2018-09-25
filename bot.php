@@ -88,8 +88,25 @@ if($message['type']=='text') {
             'replyToken' => $replyToken,
             'messages' => array(
                 array(
-                    'type' => 'text',
-                    'text' => $result
+                "type": "flex",
+      		"altText": "This is a Flex Message",
+      		"contents": {
+        		"type": "bubble",
+        		"body": {
+         		"type": "box",
+          		"layout": "horizontal",
+          		"contents": [
+            			{
+              			"type": "text",
+              			"text": "Hello,"
+            			},
+            			{
+              			"type": "text",
+              			"text": "World!"
+            			}
+          		]
+        		}
+      		}
                 )
             )
         );
